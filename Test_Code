@@ -1,0 +1,27 @@
+//Testing code that outputs the text in the console instead of making a text file
+
+
+package tess4j;
+
+
+import java.io.File;
+import java.io.*;
+import net.sourceforge.tess4j.*;
+
+public class test {
+	public static void main(String[] args) throws IOException{
+		
+		File imageFile = new File("C:\\Users\\jorda\\eclipse-workspace\\ICS4U_Tesseract_Project\\images\\eurotext.png");
+		
+		ITesseract instance = new Tesseract();
+		instance.setDatapath("C:\\Users\\jorda\\eclipse-workspace\\ICS4U_Tesseract_Project\\tessdata");
+		
+		try {
+			String result = instance.doOCR(imageFile);
+			System.out.println(result);
+			
+		} catch (TesseractException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+}
